@@ -40,7 +40,7 @@ export class CreateProfitService {
         if (!ownerExists){
             throw new Error("usuário inexistente")
         }
-        
+    
         const profit = profitRepository.create({
             value: value,
             ownerId: ownerId,

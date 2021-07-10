@@ -1,0 +1,11 @@
+
+
+# Backend
+
+[x] rota de deletar profit
+[x] rota de deletar expense
+[ ] rota de login
+[ ] implementar autenticação e seu middleware
+[ ] implementar privilegio de administrador e seu middleware
+[ ] implementar expenses cicladas (ex: conta de energia)
+[ ] implementar profits cicladas (ex: salário)

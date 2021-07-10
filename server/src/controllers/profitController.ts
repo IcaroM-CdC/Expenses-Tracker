@@ -1,19 +1,33 @@
 import { Request, Response } from "express"
 import { CreateProfitService } from "../services/createProfitService"
+import { DeleteProfitService } from "../services/deleteProfitService"
 
 export class ProfitController {
 
-    async newLoan(request: Request, response: Response){
+    async insertProfit(request: Request, response: Response){
 
         const { value, ownerId, day, year, month } = request.body
         const createProfitService = new CreateProfitService()
-        const loan = await createProfitService.execute({ value, day, month, year, ownerId })
+        const profit = await createProfitService.execute({ value, day, month, year, ownerId })
 
         return response.status(200).json({
             message: "success",
-            data: loan
+            data: profit
         })
 
+    }
+
+    async deleteProfit(request: Request, response: Response){
+
+        const { id } = request.body
+        const deleteProfitService = new DeleteProfitService()
+        const deletedExpense = await deleteProfitService.execute({ id})
+
+
+        return response.status(200).json({
+            message: "success",
+            data: {deletedExpense}
+        })
     }
 
 }
