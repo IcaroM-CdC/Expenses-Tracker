@@ -3,6 +3,7 @@ import { ErrorHandler } from "./middlewares/errorHandler"
 import { UserController } from "./controllers/userController";
 import { ProfitController } from "./controllers/profitController";
 import { ExpenseController} from "./controllers/expenseController"
+
 import "./database"
 import "express-async-errors"
 
@@ -15,7 +16,8 @@ const expenseController = new ExpenseController()
 
 APP.use(express.json())
 
-APP.post("/register", userController.handle)
+APP.post("/register", userController.register)
+APP.post("/login", userController.login)
 APP.post("/profit/insert", profitController.insertProfit)
 APP.post("/expense/insert", expenseController.insertExpense)
 
