@@ -40,6 +40,5 @@ export class ExpenseController {
             message: "Success",
             data: expensesList
         })
-
     }
 }

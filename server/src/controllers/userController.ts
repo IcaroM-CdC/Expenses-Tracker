@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { CreateUserService } from "../services/createUserService"
 import { AuthUserService } from "../services/AuthUserService"
+import { ListUsersService } from "../services/listUsersService"
 
 export class UserController {
 
@@ -25,6 +26,17 @@ export class UserController {
         return response.status(201).json({
             message: "Success",
             data: token
+        })
+    }
+
+    async listUsers(request: Request, response: Response){
+
+        const listUsersService = new ListUsersService()
+        const userList = await listUsersService.execute()
+        
+        return response.status(200).json({
+            message: "Success",
+            data: userList
         })
     }
 }

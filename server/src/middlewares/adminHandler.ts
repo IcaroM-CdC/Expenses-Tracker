@@ -4,11 +4,10 @@ import { User } from "../entities/users"
 
 export async function AdminHandler (resquest: Request, response: Response, next: NextFunction){
 
-    const { userId } = resquest.body
+    const { userId } = resquest
 
     const userRepository = getRepository(User)
     const user = await userRepository.findOne({ id: userId })
-
     const isAdmin = user?.isAdmin
     
     if (isAdmin){
@@ -17,7 +16,7 @@ export async function AdminHandler (resquest: Request, response: Response, next:
 
     else {
         return response.status(401).json({
-            error: "Usuário sem permissão"
+            error: "access unauthorized"
         })
     }
 

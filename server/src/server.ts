@@ -19,19 +19,18 @@ const expenseController = new ExpenseController()
 
 APP.use(express.json())
 
-APP.post("/register", userController.register)
-APP.post("/login", userController.login)
+APP.post("/user/register", userController.register)
+APP.post("/user/login", userController.login)
+
 APP.post("/profit/insert", AuthHandler, profitController.insertProfit)
 APP.post("/expense/insert", AuthHandler, expenseController.insertExpense)
 
 APP.delete("/profit/delete", AuthHandler, profitController.deleteProfit)
 APP.delete("/expense/delete", AuthHandler, expenseController.deleteExpense)
 
-
 APP.get("/profit/get-profits", AuthHandler, profitController.listProfits)
 APP.get("/expense/get-expenses", AuthHandler, expenseController.listExpenses)
-
-
+APP.get("/user/get-users", AuthHandler, AdminHandler, userController.listUsers)
 
 APP.use(ErrorHandler)
 
