@@ -1,11 +1,15 @@
-
-
 # Backend
 
 [x] rota de deletar profit
 [x] rota de deletar expense
-[ ] rota de login
-[ ] implementar autenticação e seu middleware
-[ ] implementar privilegio de administrador e seu middleware
+[x] rota de login
+[X] implementar autenticação e seu middleware
+[X] implementar privilegio de administrador e seu middleware
+[X] implementar rota de listar expenses
+[X] implementar rota de listar profits
+[ ] implementar rota de listar expenses em um dada data ou intervalo de tempo
+[ ] implementar rota de listar profits em um dada data ou intervalo de tempo 
+[ ] implementar rota de listar usuários
 [ ] implementar expenses cicladas (ex: conta de energia)
 [ ] implementar profits cicladas (ex: salário)
+[ ] implementar painel de usuário

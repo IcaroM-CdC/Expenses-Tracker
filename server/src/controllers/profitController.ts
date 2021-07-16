@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { CreateProfitService } from "../services/createProfitService"
 import { DeleteProfitService } from "../services/deleteProfitService"
+import { ListProfitsService } from "../services/listProfitsService"
 
 export class ProfitController {
 
@@ -26,8 +27,21 @@ export class ProfitController {
 
         return response.status(200).json({
             message: "success",
-            data: {deletedExpense}
+            data: deletedExpense
         })
+    }
+
+    async listProfits(request: Request, response: Response){
+        
+        const userId = request.userId
+        const listProfitsService = new ListProfitsService()
+        const profitsList = await listProfitsService.execute({ userId })
+
+        return response.status(200).json({
+            message: "success",
+            data: profitsList
+        })
+
     }
 
 }

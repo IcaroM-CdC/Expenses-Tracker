@@ -1,5 +1,8 @@
 import express from "express";
 import { ErrorHandler } from "./middlewares/errorHandler"
+import { AuthHandler } from "./middlewares/authHandler"
+import { AdminHandler } from "./middlewares/adminHandler"
+
 import { UserController } from "./controllers/userController";
 import { ProfitController } from "./controllers/profitController";
 import { ExpenseController} from "./controllers/expenseController"
@@ -18,17 +21,21 @@ APP.use(express.json())
 
 APP.post("/register", userController.register)
 APP.post("/login", userController.login)
-APP.post("/profit/insert", profitController.insertProfit)
-APP.post("/expense/insert", expenseController.insertExpense)
+APP.post("/profit/insert", AuthHandler, profitController.insertProfit)
+APP.post("/expense/insert", AuthHandler, expenseController.insertExpense)
 
-APP.delete("/profit/delete", profitController.deleteProfit)
-APP.delete("/expense/delete", expenseController.deleteExpense)
+APP.delete("/profit/delete", AuthHandler, profitController.deleteProfit)
+APP.delete("/expense/delete", AuthHandler, expenseController.deleteExpense)
+
+
+APP.get("/profit/get-profits", AuthHandler, profitController.listProfits)
+APP.get("/expense/get-expenses", AuthHandler, expenseController.listExpenses)
 
 
 
 APP.use(ErrorHandler)
 
-APP.listen(port,() => {
+APP.listen(port, function(){
 
     console.log(`Servidor rodando no endereço http://localhost:${port}`)
 
