@@ -28,15 +28,4 @@ export class UserController {
             data: token
         })
     }
-
-    async listUsers(request: Request, response: Response){
-
-        const listUsersService = new ListUsersService()
-        const userList = await listUsersService.execute()
-        
-        return response.status(200).json({
-            message: "Success",
-            data: userList
-        })
-    }
 }

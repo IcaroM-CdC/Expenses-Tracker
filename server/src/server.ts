@@ -5,7 +5,8 @@ import { AdminHandler } from "./middlewares/adminHandler"
 
 import { UserController } from "./controllers/userController";
 import { ProfitController } from "./controllers/profitController";
-import { ExpenseController} from "./controllers/expenseController"
+import { ExpenseController} from "./controllers/expenseController";
+import { AdminController } from "./controllers/adminController";
 
 import "./database"
 import "express-async-errors"
@@ -16,6 +17,7 @@ const port = 3003
 const userController = new UserController()
 const profitController = new ProfitController()
 const expenseController = new ExpenseController()
+const adminController = new AdminController()
 
 APP.use(express.json())
 
@@ -30,7 +32,10 @@ APP.delete("/expense/delete", AuthHandler, expenseController.deleteExpense)
 
 APP.get("/profit/get-profits", AuthHandler, profitController.listProfits)
 APP.get("/expense/get-expenses", AuthHandler, expenseController.listExpenses)
-APP.get("/user/get-users", AuthHandler, AdminHandler, userController.listUsers)
+
+APP.get("/admin/get-users", AuthHandler, AdminHandler, adminController.listUsers)
+APP.get("/admin/get-profits-values", AuthHandler, AdminHandler, adminController.listProfitsValues)
+APP.get("/admin/get-expenses-values", AuthHandler, AdminHandler, adminController.listExpensesValues)
 
 APP.use(ErrorHandler)
 

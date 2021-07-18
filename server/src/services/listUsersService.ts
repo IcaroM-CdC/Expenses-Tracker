@@ -7,8 +7,20 @@ export class ListUsersService {
 
         const userRepository = getRepository(User)
         const userList = await userRepository.find()
+        const processedUserList: Array<object> = []
 
-        return userList
+        userList.forEach(user => {
+            
+            let processedUser = {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            }
+
+            processedUserList.push(processedUser)
+        })
+
+        return processedUserList
 
     }
 }
