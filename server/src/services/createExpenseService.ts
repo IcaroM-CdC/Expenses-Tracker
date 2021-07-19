@@ -25,10 +25,19 @@ export class CreateExpenseService{
             throw new Error("usuário inexistente")
         }
 
-        if (!day || !month || !year){
-            const date = Date.now()
-            console.log(date)
-            throw new Error("data incorreta")
+        if (!day){
+            let now = new Date()
+            day = now.getDay()
+        }
+
+        if (!month){
+            let now = new Date()
+            month = now.getMonth()
+        }
+
+        if (!year) {
+            let now = new Date()
+            year = now.getFullYear()
         }
 
         const ownerExists = await userRepository.findOne({

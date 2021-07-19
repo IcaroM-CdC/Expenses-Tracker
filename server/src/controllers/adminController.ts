@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { ListUsersService } from "../services/listUsersService"
-import { ListProfitsValuesService } from "../services/adminServices/listProfitsValuesService" 
-import { ListExpensesValuesService } from "../services/adminServices/listExpensesValuesService"
+import { ListProfitsMetadataService } from "../services/adminServices/listProfitsMetadataService" 
+import { ListExpensesMetadataService } from "../services/adminServices/listExpensesMetadataService"
 
 export class AdminController {
 
@@ -16,28 +16,25 @@ export class AdminController {
         })
     }
 
-    async listProfitsValues(request: Request, response: Response){
+    async listProfitsMetadata(request: Request, response: Response){
 
-        const listProfitsValuesService = new ListProfitsValuesService()
-        const profitValuesList = await listProfitsValuesService.execute()
+        const listProfitsMetadataService = new ListProfitsMetadataService()
+        const profitMetadataList = await listProfitsMetadataService.execute()
        
         return response.status(200).json({
             message: "Success",
-            data: profitValuesList
+            data: profitMetadataList
         })
-
     }
 
-    async listExpensesValues(request: Request, response: Response){
+    async listExpensesMetadata(request: Request, response: Response){
 
-        const listExpensesValuesService = new ListProfitsValuesService()
-        const expenseValuesList = await listExpensesValuesService.execute()
+        const listExpensesMetadataService = new ListExpensesMetadataService()
+        const expenseMetadataList = await listExpensesMetadataService.execute()
 
         return response.status(200).json({
             message: "Success",
-            data: expenseValuesList
+            data: expenseMetadataList
         })
-
     }
-
 }

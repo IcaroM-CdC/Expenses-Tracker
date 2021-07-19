@@ -4,9 +4,9 @@ import { User } from "../entities/users"
 
 interface ProfitRequest {
     value: number
-    day: number
-    month: number
-    year: number
+    day?: number
+    month?: number
+    year?: number
     ownerId: string
 }
 
@@ -25,10 +25,19 @@ export class CreateProfitService {
             throw new Error("usuário inexistente")
         }
 
-        if (!day || !month || !year){
-            const date = Date.now()
-            console.log(date)
-            throw new Error("data incorreta")
+        if (!day){
+            let now = new Date()
+            day = now.getDay()
+        }
+
+        if (!month){
+            let now = new Date()
+            month = now.getMonth()
+        }
+
+        if (!year) {
+            let now = new Date()
+            year = now.getFullYear()
         }
 
         // TODO: Opção de pegar os dados de data de hoje, para não precisar receber obrigatoriamente do corpo da requisição
