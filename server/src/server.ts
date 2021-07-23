@@ -1,4 +1,7 @@
 import express from "express";
+import cors from "cors"
+
+import { options } from "./allowedOrigins"
 
 import { ErrorHandler } from "./middlewares/errorHandler";
 import { AdminHandler } from "./middlewares/adminHandler";
@@ -20,6 +23,8 @@ const expenseController = new ExpenseController()
 const adminController = new AdminController()
 
 APP.use(express.json())
+APP.use(cors(options))
+
 
 /*
     ROTAS DOS USUÁRIOS 

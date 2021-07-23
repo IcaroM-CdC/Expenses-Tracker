@@ -37,8 +37,7 @@ export class ExpenseController {
         const expensesList = await listExpenseService.execute({ userId })
 
         return response.status(200).json({
-            message: "Success",
-            data: expensesList
+            expenses: expensesList
         })
     }
 }

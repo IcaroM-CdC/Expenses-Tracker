@@ -38,8 +38,7 @@ export class ProfitController {
         const profitsList = await listProfitsService.execute({ userId })
 
         return response.status(200).json({
-            message: "success",
-            data: profitsList
+            profits: profitsList
         })
 
     }

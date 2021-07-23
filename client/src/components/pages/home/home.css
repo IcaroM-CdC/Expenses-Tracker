@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Rajdhani-bold';
+    src: local('Rajdhani'), url(../../../assets/fonts/Rajdhani/Rajdhani-SemiBold.ttf) format('truetype');}
+
+@font-face {
+    font-family: 'Anton';
+    src: local('Anton'), url(../../../assets/fonts/Anton/Anton-Regular.ttf) format('truetype');}
+    
+
+#main {
+    background-color: #183346;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#chart-image-div {
+    position: relative;
+    margin-left: 15%;
+    width: 30%;
+    height: 65%;
+}
+
+#chart-image {
+    width: 100%;
+    height: 100%;
+}
+
+#text-div {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 65%;
+
+    align-items: center;
+    margin-left: 5%;
+}
+
+#title-text {
+    font-family: Anton, serif;
+    font-size: 5.2em;
+    color: #FFFF;
+    margin-bottom: 0%;
+    padding-top: 10%;
+}
+
+#info-text {
+    font-family: Anton, serif;
+    font-size: 1.2em;
+    color: #8a98a1;
+}
