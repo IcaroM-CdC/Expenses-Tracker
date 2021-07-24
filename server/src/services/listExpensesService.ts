@@ -19,7 +19,23 @@ export class ListExpensesService {
             ownerId: userId
         })
 
-        return expenses
+        const totalExpensesValue = this.sumExpense(expenses)
 
+        return {
+            expensesList: expenses,
+            totalExpensesValue: totalExpensesValue
+        }
+
+    }
+
+    sumExpense(expense: Expense[]){
+
+        var total = 0
+
+        for (let index = 0; index < expense.length; index++) {
+            total = total + expense[index].value
+        }
+
+        return total
     }
 }

@@ -94,10 +94,10 @@ export function Tracker(){
                 <div id="data-div">
                     <div id="total-data-div">
                         <div className="expense-profit-div" id="expense-div">
-                            
+                            <h1></h1>
                         </div>
                         <div className="expense-profit-div" id="profit-div">
-
+                            <h1></h1>
                         </div>
                     </div>
 

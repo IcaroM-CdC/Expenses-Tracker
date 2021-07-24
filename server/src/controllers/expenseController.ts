@@ -34,10 +34,10 @@ export class ExpenseController {
 
         const userId = request.userId
         const listExpenseService = new ListExpensesService()
-        const expensesList = await listExpenseService.execute({ userId })
+        const expensesData = await listExpenseService.execute({ userId })
 
         return response.status(200).json({
-            expenses: expensesList
+            expensesData: expensesData
         })
     }
 }

@@ -19,7 +19,23 @@ export class ListProfitsService {
             ownerId: userId
         })
 
-        return profits;
+        const totalProfitsValue = this.sumProfits(profits)
+
+        return {
+            profitsList: profits,
+            totalProfitsValue: totalProfitsValue
+        }
+    }
+
+    sumProfits(profit: Profit[]){
+
+        var total = 0
+
+        for (let index = 0; index < profit.length; index++) {
+            total = total + profit[index].value
+        }
+
+        return total
     }
 
 }
