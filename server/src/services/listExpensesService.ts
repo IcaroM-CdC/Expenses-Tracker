@@ -19,11 +19,11 @@ export class ListExpensesService {
             ownerId: userId
         })
 
-        const totalExpensesValue = this.sumExpense(expenses)
+        const totalExpensesValues = this.sumExpense(expenses)
 
         return {
             expensesList: expenses,
-            totalExpensesValue: totalExpensesValue
+            totalExpensesValues: totalExpensesValues
         }
 
     }

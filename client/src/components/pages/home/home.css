@@ -1,8 +1,4 @@
 @font-face {
-    font-family: 'Rajdhani-bold';
-    src: local('Rajdhani'), url(../../../assets/fonts/Rajdhani/Rajdhani-SemiBold.ttf) format('truetype');}
-
-@font-face {
     font-family: 'Anton';
     src: local('Anton'), url(../../../assets/fonts/Anton/Anton-Regular.ttf) format('truetype');}
     

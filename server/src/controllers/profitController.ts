@@ -35,10 +35,10 @@ export class ProfitController {
         
         const userId = request.userId
         const listProfitsService = new ListProfitsService()
-        const profitsList = await listProfitsService.execute({ userId })
+        const profitsData = await listProfitsService.execute({ userId })
 
         return response.status(200).json({
-            profits: profitsList
+            profitsData: profitsData
         })
 
     }

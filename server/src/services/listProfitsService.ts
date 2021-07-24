@@ -19,11 +19,11 @@ export class ListProfitsService {
             ownerId: userId
         })
 
-        const totalProfitsValue = this.sumProfits(profits)
+        const totalProfitsValues = this.sumProfits(profits)
 
         return {
             profitsList: profits,
-            totalProfitsValue: totalProfitsValue
+            totalProfitsValue: totalProfitsValues
         }
     }
 
